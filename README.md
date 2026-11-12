@@ -1,8 +1,21 @@
 # seedbed
 
+![seedbed: move over the dots and flowers grow, on any website](docs/media/cover.png)
+
 A hover garden for any website: a quiet dot grid where flowers grow up out of the dots under your cursor (or finger), then wilt back into dots. One dependency-free file, five styles, live controls. A free, open-source rebuild of a design experiment by Mohamed Siddique ([his post](https://x.com/msiddique26/status/2120936635856752710)), which was only shown as a video.
 
-**Live:** https://seedbed-gray.vercel.app · **App:** https://seedbed-gray.vercel.app/app · **The file:** https://seedbed-gray.vercel.app/seedbed.js
+## See it
+
+![Move over the dots and flowers grow; leave and they wilt back](docs/media/grow-and-wilt.gif)
+
+| | |
+|---|---|
+| ![Start your garden: name the site and pick a style](docs/media/1-start.png) | ![A Meadow garden in bloom under the cursor](docs/media/2-it-blooms.png) |
+| ![The same garden switched to Night](docs/media/3-night.png) | ![Copy it into your site: the tag with your settings baked in](docs/media/4-copy-it.png) |
+
+These are the real app at `/app`, with a sample garden ("Hazel Pottery" is a made-up site).
+
+**Live:** https://seedbed-gray.vercel.app · **App:** https://seedbed-gray.vercel.app/app · **The file:** https://seedbed-gray.vercel.app/seedbed.js · publik listing coming soon (publik caps new listings each week; until then `/app` opens with no sign-in)
 
 ## Drop it into your site
 
@@ -49,7 +62,7 @@ npm run dev
 open http://localhost:3000
 ```
 
-Deploy: `npx vercel --prod`. The landing page at `/` is public; `/app` uses Sign in with publik (see AGENTS.md).
+Deploy: `npx vercel --prod`. The landing page at `/` is public; `/app` uses Sign in with publik once its listing is up (see AGENTS.md).
 
 ## Licence
 MIT. See [LICENSE](LICENSE). The engine and the app are written from scratch. The landing page's layout and motion kit in `public/assets` (system.css, the layout, motion, moment and effect scripts) comes from tasteskill, the design skill the page was built with; `public/assets/landing.css` is the page's own.
