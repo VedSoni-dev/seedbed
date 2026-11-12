@@ -1,6 +1,6 @@
 import { DEFAULTS, normalize, type Options } from "@/lib/seedbed.js";
 
-export const SITE = "https://seedbed.vercel.app";
+export const SITE = "https://seedbed-gray.vercel.app";
 
 const ATTR: [keyof Options, string][] = [
   ["preset", "preset"], ["pitch", "pitch"], ["radius", "radius"], ["height", "height"], ["speed", "speed"],

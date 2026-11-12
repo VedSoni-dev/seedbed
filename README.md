@@ -2,7 +2,7 @@
 
 A hover garden for any website: a quiet dot grid where flowers grow up out of the dots under your cursor (or finger), then wilt back into dots. One dependency-free file, five styles, live controls. A free, open-source rebuild of a design experiment by Mohamed Siddique ([his post](https://x.com/msiddique26/status/2120936635856752710)), which was only shown as a video.
 
-**Live:** https://seedbed.vercel.app · **App:** https://seedbed.vercel.app/app · **The file:** https://seedbed.vercel.app/seedbed.js
+**Live:** https://seedbed-gray.vercel.app · **App:** https://seedbed-gray.vercel.app/app · **The file:** https://seedbed-gray.vercel.app/seedbed.js
 
 ## Drop it into your site
 

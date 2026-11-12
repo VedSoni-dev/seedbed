@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swa
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-serif", display: "swap", axes: ["SOFT", "opsz"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://seedbed.vercel.app"),
+  metadataBase: new URL("https://seedbed-gray.vercel.app"),
   title: "seedbed: a garden that grows under your cursor",
   description:
     "A quiet dot grid where flowers grow under the cursor and wilt back into dots. Five styles, live controls, and a drop-in web component or React file for your own site. Free and open source.",
