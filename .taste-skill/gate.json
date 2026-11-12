@@ -1,0 +1,382 @@
+{
+ "start": "2026-11-12T22:40:57.373Z",
+ "round": 2,
+ "idle": 0,
+ "errors": 0,
+ "status": "pass",
+ "history": [
+  {
+   "at": "2026-11-12T23:06:56.756Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 1,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-12T23:16:11.153Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 1,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-12T23:20:43.743Z",
+   "mode": "manual",
+   "status": "pass",
+   "fails": 0,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": null,
+  "url": "http://localhost:3131/",
+  "root": null,
+  "kind": "software",
+  "category": "hover garden component for websites",
+  "primary": "Start a garden",
+  "rounds": 3,
+  "start": "2026-11-12T22:40:57.373Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "25a6f54ac49f7ecc:555f2df1",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "62609fbb594fd32f",
+ "page": "http://localhost:3131/",
+ "found": {
+  "fails": [
+   {
+    "check": "empty-visual",
+    "where": "div.paper > div.bed.sb-open__bed > div > canvas",
+    "msg": "the canvas shows nothing here: 99% of it is one colour (#fbfaf6)",
+    "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "empty-visual"
+    ],
+    "wheres": [
+     "div.paper > div.bed.sb-open__bed > div > canvas"
+    ]
+   },
+   {
+    "check": "empty-visual",
+    "where": "div.ui.sb-iw > div.sb-iw__live > seedbed-garden > canvas",
+    "msg": "the canvas shows nothing here: 99% of it is one colour (#f7f1e3)",
+    "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "empty-visual"
+    ],
+    "wheres": [
+     "div.ui.sb-iw > div.sb-iw__live > seedbed-garden > canvas"
+    ]
+   },
+   {
+    "check": "gl-fallback",
+    "where": "div.scene.sb-open__scene > div.paper > div.bed.sb-open__bed > div \"Five garden styles and your own\"",
+    "msg": "with its shader rejected (as a strict GPU rejects a reserved word) the WebGL picture shows only its ground (99% one colour, #fbfaf6): it needs a still fallback picture",
+    "fix": "give the WebGL piece a still fallback (a picture or a CSS ground) that shows when its shader fails to compile or link",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "gl-fallback"
+    ],
+    "wheres": [
+     "div.scene.sb-open__scene > div.paper > div.bed.sb-open__bed > div \"Five garden styles and your own\""
+    ]
+   },
+   {
+    "check": "gl-fallback",
+    "where": "div.frame.frame--split > div.ui.sb-iw > div.sb-iw__live > seedbed-garden \"Install the garden with two lines\"",
+    "msg": "with its shader rejected (as a strict GPU rejects a reserved word) the WebGL picture shows only its ground (99% one colour, #f7f1e3): it needs a still fallback picture",
+    "fix": "give the WebGL piece a still fallback (a picture or a CSS ground) that shows when its shader fails to compile or link",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "gl-fallback"
+    ],
+    "wheres": [
+     "div.frame.frame--split > div.ui.sb-iw > div.sb-iw__live > seedbed-garden \"Install the garden with two lines\""
+    ]
+   },
+   {
+    "check": "sparse",
+    "where": "#statement section.section.mo-la \"One file, any websiteseedbed.js \"",
+    "msg": "its content fills 31% of its screen; merge it or give it its visual (0.55 is the aim)",
+    "fix": "fill the section or make it a screen shorter",
+    "widths": [
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "sparse"
+    ],
+    "wheres": [
+     "#statement section.section.mo-la \"One file, any websiteseedbed.js \""
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "assets",
+    "where": "(the page)",
+    "msg": "the data file seedbed.mp4 did not load (404)",
+    "fix": "fix the path, or remove the reference",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "no-visual",
+    "where": "section#install \"Install the garden with two lines\"",
+    "msg": "pictures, effects and mocks cover 19% of this section; a feature section needs a visual (about 25% or more)",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#features \"What seedbed draws and ships. Every flow\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-headings",
+    "where": "div.group > div.grid > article.card.card--row:nth-of-type(3) > h3 \"Turns a sentence into a style\"",
+    "msg": "\"Turns a sentence into a style\" names no product, part, place or section (the one brand line a page may have)",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#questions / footer#contact",
+    "msg": "311px between these sections, +47% against the median 212px of gaps at a change of ground",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > a.nav__logo \"seedbed\"",
+    "msg": "\"seedbed\" opens a section headed \"Flower hover effect for your website\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "div.wrap.nav__bar > nav.nav__links > div.nav__item:nth-of-type(2) > a.nav__link \"Features\"",
+    "msg": "\"Features\" opens a section headed \"What seedbed draws and ships. Every flower grows o\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "label-centre",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"Start a garden\"",
+    "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right)",
+    "fix": "centre the label in its button, or fill the empty side with an icon",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-length",
+    "where": "section#questions \"Questions\"",
+    "msg": "2 sections over 90 words a screen outside the UI mocks (\"Questions\" 173, \"Five garden styles and y\" 107); 74 words a screen across the page (517 words in 7 screens): a tech page says it in about 80 or fewer",
+    "fix": "cut every section to its heading, one line and the product UI: the UI says the rest; no second paragraph, no list of feature sentences",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-current",
+    "where": "header.nav.nav--centre",
+    "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
+    "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "action-repeat",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"start a garden\"",
+    "msg": "\"start a garden\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-air",
+    "where": "section#questions \"Questionsseedbed is free on publik, a fr\"",
+    "msg": "the content fills 53.9% of the section's height (486 of 900px): 55% or more (40% WARN) (SR-3)",
+    "fix": "fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle",
+    "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge",
+    "fix": "start the nav's first item and end its last on the content's two edges",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "proximity",
+    "where": "div.grid.grid--top > div.frame.frame--split > div.ui.sb-iw > div.sb-iw__live \"<script type=\"module\" src=\"./seedbed.js\"\"",
+    "msg": "stacked at this width, the visual starts 16px under the text and buttons above it (\"<script type=\"module\" src=\"./s\"): it reads glued to them",
+    "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 119,
+   "layout": 4
+  }
+ },
+ "open": [],
+ "waived": [
+  {
+   "check": "empty-visual",
+   "where": "div.paper > div.bed.sb-open__bed > div > canvas",
+   "msg": "the canvas shows nothing here: 99% of it is one colour (#fbfaf6)",
+   "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "empty-visual"
+   ],
+   "wheres": [
+    "div.paper > div.bed.sb-open__bed > div > canvas"
+   ],
+   "reason": "the live seedbed garden at rest is the product's quiet dot grid on its cream paper card (the design's own look: the dots are the picture); flowers grow under the pointer and in one sweep when it first comes into view, so a still capture after the sweep shows the dots only"
+  },
+  {
+   "check": "empty-visual",
+   "where": "div.ui.sb-iw > div.sb-iw__live > seedbed-garden > canvas",
+   "msg": "the canvas shows nothing here: 99% of it is one colour (#f7f1e3)",
+   "fix": "make the visual draw at every width: a picture that loads, an effect that renders, or its still fallback; never an empty frame",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "empty-visual"
+   ],
+   "wheres": [
+    "div.ui.sb-iw > div.sb-iw__live > seedbed-garden > canvas"
+   ],
+   "reason": "the running <seedbed-garden> tag at rest is the product's dot grid on its paper colour; it blooms under the pointer and in one sweep when it first scrolls into view"
+  },
+  {
+   "check": "gl-fallback",
+   "where": "div.scene.sb-open__scene > div.paper > div.bed.sb-open__bed > div \"Five garden styles and your own\"",
+   "msg": "with its shader rejected (as a strict GPU rejects a reserved word) the WebGL picture shows only its ground (99% one colour, #fbfaf6): it needs a still fallback picture",
+   "fix": "give the WebGL piece a still fallback (a picture or a CSS ground) that shows when its shader fails to compile or link",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "gl-fallback"
+   ],
+   "wheres": [
+    "div.scene.sb-open__scene > div.paper > div.bed.sb-open__bed > div \"Five garden styles and your own\""
+   ],
+   "reason": "a 2D canvas, not WebGL; without canvas 2D the engine already paints its still fallback, a CSS dot grid on the card colour (lib/seedbed.js fallback()), which is the same picture as its rest state"
+  },
+  {
+   "check": "gl-fallback",
+   "where": "div.frame.frame--split > div.ui.sb-iw > div.sb-iw__live > seedbed-garden \"Install the garden with two lines\"",
+   "msg": "with its shader rejected (as a strict GPU rejects a reserved word) the WebGL picture shows only its ground (99% one colour, #f7f1e3): it needs a still fallback picture",
+   "fix": "give the WebGL piece a still fallback (a picture or a CSS ground) that shows when its shader fails to compile or link",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "gl-fallback"
+   ],
+   "wheres": [
+    "div.frame.frame--split > div.ui.sb-iw > div.sb-iw__live > seedbed-garden \"Install the garden with two lines\""
+   ],
+   "reason": "a 2D canvas, not WebGL; the element's fallback is the CSS dot grid on the card colour, the same picture as its rest state"
+  },
+  {
+   "check": "sparse",
+   "where": "#statement section.section.mo-la \"One file, any websiteseedbed.js \"",
+   "msg": "its content fills 31% of its screen; merge it or give it its visual (0.55 is the aim)",
+   "fix": "fill the section or make it a screen shorter",
+   "widths": [
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "sparse"
+   ],
+   "wheres": [
+    "#statement section.section.mo-la \"One file, any websiteseedbed.js \""
+   ],
+   "reason": "the dealt letters-assemble statement section is type by design (moments.md): one short statement and its line, set at the kit's own moment.css sizes, with no picture"
+  }
+ ],
+ "warnCount": 14,
+ "at": "2026-11-12T23:20:43.743Z"
+}

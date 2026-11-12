@@ -4,3 +4,11 @@ node_modules
 .vercel
 next-env.d.ts
 *.tsbuildinfo
+.taste-skill/chrome-*
+.taste-skill/gate/
+.taste-skill/*.txt
+.taste-skill/*.pid
+.taste-skill/*.log
+.taste-skill/page.html
+!.taste-skill/brand.txt
+shots/

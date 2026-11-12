@@ -30,6 +30,7 @@ The app at `/app` writes a React version for you with your settings baked in.
 - Bloom radius, stem height, grow speed, wilt delay, density, dot spacing and seed, all live
 - Copy as a web component, a React file or a one-line CDN tag
 - Your gardens (one per site) saved in your browser, with a first-run setup and an inline how-to
+- A landing page at `/` with the live garden in the hero, the style app beside its sliders, and the running `<seedbed-garden>` tag; light and dark, phone to desktop
 - Touch drag on phones; instant, calm blooms with `prefers-reduced-motion`; a plain CSS dot grid if canvas is unavailable
 - Sleeps when idle, offscreen or in a background tab; DPR capped at 2; a cap on growing plants
 - Engine life-cycle tests (`npm test`) and a check that the engine makes no network calls
@@ -51,7 +52,7 @@ open http://localhost:3000
 Deploy: `npx vercel --prod`. The landing page at `/` is public; `/app` uses Sign in with publik (see AGENTS.md).
 
 ## Licence
-MIT. See [LICENSE](LICENSE). No third-party code; written from scratch.
+MIT. See [LICENSE](LICENSE). The engine and the app are written from scratch. The landing page's layout and motion kit in `public/assets` (system.css, the layout, motion, moment and effect scripts) comes from tasteskill, the design skill the page was built with; `public/assets/landing.css` is the page's own.
 
 Design credit: the hover-garden idea is from a design experiment by Mohamed Siddique. The code, flowers, landscape, styles and copy here are new.
 

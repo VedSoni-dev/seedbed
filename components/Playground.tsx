@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { Mark } from "@/components/Mark";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Garden } from "@/components/Garden";
 import { SceneBg, SkyIcon, Swatch, inkFor } from "@/components/Scene";
@@ -46,7 +46,7 @@ function Onboarding({ onCreate, onCancel }: { onCreate: (g: GardenDoc) => void; 
   return (
     <div className="onboard">
       <form className="onboard-card" onSubmit={create}>
-        <Link href="/" className="logo-sm"><img src="/icon.svg" alt="" width={22} height={22} />seedbed</Link>
+        <a href="/" className="logo-sm"><Mark />seedbed</a>
         <h1>Start your garden</h1>
         <p className="muted">A garden is one hover-bloom setup for one site. You can tune it, grow new styles and copy its code. It is saved in this browser.</p>
         <label className="field">
@@ -67,7 +67,7 @@ function Onboarding({ onCreate, onCancel }: { onCreate: (g: GardenDoc) => void; 
           <Garden options={{ preset, pitch: 30, radius: 90, ghost: true }} />
         </div>
         <div className="row">
-          <button className="btn btn-primary" type="submit">Plant it →</button>
+          <button className="btn btn-primary" type="submit">Plant the garden <span className="arr" aria-hidden="true">→</span></button>
           {onCancel && <button className="btn" type="button" onClick={onCancel}>Cancel</button>}
         </div>
       </form>
@@ -104,9 +104,9 @@ function Workbench({ store, doc, update }: { store: Store; doc: GardenDoc; updat
   const activeKey = opts.custom ? null : opts.night ? "night" : opts.preset;
 
   return (
-    <div className="bench">
-      <header className="bench-top">
-        <Link href="/" className="logo-sm"><img src="/icon.svg" alt="" width={22} height={22} />seedbed</Link>
+    <>
+      <header className="bench-top"><div className="bench-top__in">
+        <a href="/" className="logo-sm"><Mark />seedbed</a>
         <div className="gardens">
           {renaming ? (
             <form onSubmit={(e) => { e.preventDefault(); setRenaming(false); }}>
@@ -130,15 +130,15 @@ function Workbench({ store, doc, update }: { store: Store; doc: GardenDoc; updat
             }}>Delete</button>
           )}
         </div>
-      </header>
+      </div></header>
 
-      <div className="bench-grid">
+      <div className="bench"><div className="bench-grid">
         <div className="bench-main">
           <div className="scene">
             <SceneBg night={opts.night || inkFor(style.card) !== "#23211d"} />
             <div className="paper" style={{ ["--paper" as string]: style.card, ["--paper-ink" as string]: inkFor(style.card) }}>
               <div className="paper-head">
-                <div className="who"><span className="avatar">{doc.name.slice(0, 1).toUpperCase()}</span>{doc.name}</div>
+                <div className="who"><span className="sb-avatar">{doc.name.slice(0, 1).toUpperCase()}</span>{doc.name}</div>
                 <button className="sky-toggle" type="button" aria-label={opts.night ? "Switch to day" : "Switch to night"} onClick={() => setOpt({ night: !opts.night })}>
                   <SkyIcon night={opts.night} />
                 </button>
@@ -174,7 +174,7 @@ function Workbench({ store, doc, update }: { store: Store; doc: GardenDoc; updat
             </p>
             <pre><code>{code}</code></pre>
             <div className="row">
-              <button className="btn btn-primary" type="button" onClick={copy}>{copied ? "Copied ✓" : "Copy code"}</button>
+              <button className="btn btn-primary" type="button" onClick={copy}>{copied ? "Copied" : "Copy code"}</button>
               <a className="btn" href="/seedbed.js" download>Download seedbed.js</a>
             </div>
           </section>
@@ -201,6 +201,7 @@ function Workbench({ store, doc, update }: { store: Store; doc: GardenDoc; updat
                 </span>
               ))}
             </div>
+            {doc.styles.length === 0 && <p className="empty-line">Styles you grow from words are saved here, with this garden.</p>}
             <GrowStyle onStyle={(s) => patchDoc({ styles: [...doc.styles, s].slice(-12), options: { ...doc.options, custom: s, night: false } })} />
           </section>
 
@@ -222,8 +223,8 @@ function Workbench({ store, doc, update }: { store: Store; doc: GardenDoc; updat
 
           <p className="foot-line">free &amp; open source · not affiliated with Mohamed Siddique · <a href="https://github.com/VedSoni-dev/seedbed" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </aside>
-      </div>
-    </div>
+      </div></div>
+    </>
   );
 }
 

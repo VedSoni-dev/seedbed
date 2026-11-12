@@ -371,6 +371,7 @@ export function createGarden(el, input) {
       const dt = Math.min(0.05, Math.max(0, (now - (last || now)) / 1000)); // clamp: a background tab never jumps
       last = now;
       if (ghost) {
+        if (ghost.t0 == null) ghost.t0 = now; // the sweep's clock starts on its first frame in view, not at mount
         const k = (now - ghost.t0) / 2600;
         if (k >= 1) ghost = null;
         else touch(W * (0.08 + 0.84 * k), H * (0.5 + 0.28 * Math.sin(k * Math.PI * 2.2)), now);
@@ -413,7 +414,7 @@ export function createGarden(el, input) {
   mq && mq.addEventListener && mq.addEventListener("change", onMq);
 
   layout();
-  if (o.ghost && !reduce) { ghost = { t0: performance.now() }; wake(); }
+  if (o.ghost && !reduce) { ghost = { t0: null }; wake(); }
 
   return {
     /** Change options live. Pitch or seed changes rebuild the grid; style changes repaint in place. */

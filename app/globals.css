@@ -1,16 +1,24 @@
+/* The tokens both pages share: seedbed's own colours (the landing page's :root, start.mjs brand, is the same set)
+   and Epilogue + JetBrains Mono. The garden pieces (the scene, the paper card, the style chips) are shared too.
+   Component rules live with their page: the app's in app/app/app.css, the landing page's in public/assets
+   (the taste kit plus landing.css), so the kit's classes and the app's never meet. */
 :root {
-  --bg: #f3efe6; --bg-2: #ebe6da; --card: #fffdf8; --ink: #1f1d1a; --muted: #58534a; --line: #ddd6c8;
-  --accent: #2f5a2f; --accent-ink: #fbf8f1; --accent-soft: #e2ead9; --danger: #a23a2a;
-  --radius: 14px; --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --bg: #f4f0e6; --bg-2: #ebe5d6; --card: #fbf8f1; --ink: #1f1d1a; --muted: #57524a; --line: #dcd5c5; --line-2: #c9c0ac;
+  --accent: #2f5a2f; --accent-ink: #f4f0e6; --accent-soft: #dfe8d6; --danger: #a23a2a;
+  --sans: "Epilogue", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --r-sm: 8px; --r-md: 12px; --r-lg: 20px;
+  --shadow: 0 1px 2px rgb(31 29 26 / .06), 0 14px 36px -20px rgb(31 29 26 / .32);
   --publik-bg: var(--bg); --publik-card: var(--card); --publik-ink: var(--ink); --publik-muted: var(--muted);
   --publik-line: var(--line); --publik-accent: var(--accent); --publik-accent-ink: var(--accent-ink);
-  --publik-hover: var(--bg-2); --publik-display-font: var(--font-serif), Georgia, serif;
+  --publik-hover: var(--bg-2); --publik-display-font: var(--sans);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121410; --bg-2: #1b1e18; --card: #191c16; --ink: #eeeadf; --muted:#b3aea2; --line: #2e322a;
-    --accent: #a9d18e; --accent-ink: #13170f; --accent-soft: #24301e; --danger: #f08a78;
+    --bg: #121410; --bg-2: #1b1e18; --card: #171a14; --ink: #eeeadf; --muted: #b3aea2; --line: #2c3029; --line-2: #3a3f36;
+    --accent: #a9d18e; --accent-ink: #121410; --accent-soft: #233020; --danger: #f08a78;
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 16px 40px -20px rgb(0 0 0 / .7);
     color-scheme: dark;
   }
 }
@@ -18,57 +26,45 @@
 html, body { margin: 0; }
 body {
   background: var(--bg); color: var(--ink);
-  font: 16px/1.55 var(--font-sans), system-ui, -apple-system, sans-serif;
+  font: 16px/1.55 var(--sans);
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
-a { color: inherit; }
 button, input, select, textarea { font: inherit; color: inherit; }
-code, pre, kbd { font-family: var(--font-mono); }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px;
-  border-radius: 12px; border: 1px solid var(--line); background: var(--card); color: var(--ink);
-  font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; transition: background-color .15s, opacity .15s, transform .15s;
-}
-.btn:hover { background: var(--bg-2); }
-.btn:active { transform: translateY(1px); }
-.btn:disabled { opacity: .5; cursor: default; }
-.btn-primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
-.btn-primary:hover { background: var(--accent); opacity: .92; }
-.btn-sm { min-height: 36px; padding: 6px 12px; font-size: 14px; border-radius: 10px; }
-.muted { color: var(--muted); }
-.serif { font-family: var(--font-serif), Georgia, serif; }
+code, pre, kbd { font-family: var(--mono); }
 
-/* the scene: our own sky and hills behind a paper card */
-.scene { position: relative; border-radius: 22px; overflow: hidden; padding: clamp(18px, 4vw, 48px); isolation: isolate; }
+/* ---------------------------------------------------------------- the garden pieces (landing and app) */
+/* the scene: our own sky and hills behind a paper card (the post's look: the design wins inside the product) */
+.scene { position: relative; border-radius: var(--r-lg); overflow: hidden; padding: clamp(14px, 3vw, 40px); isolation: isolate; }
 .scene-bg { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
 .paper {
-  position: relative; max-width: 1180px; margin: 0 auto; border-radius: 18px; background: var(--paper, #f7f1e3);
-  color: var(--paper-ink, #23211d); padding: 18px clamp(14px, 2.4vw, 26px) 22px;
+  position: relative; border-radius: 16px; background: var(--paper, #f7f1e3);
+  color: var(--paper-ink, #23211d); padding: 14px clamp(12px, 2vw, 22px) 16px;
   box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 30px 60px -30px rgba(30,25,10,.45), 0 2px 6px rgba(30,25,10,.08);
   transition: background-color .5s ease, color .5s ease;
 }
 .paper::after { /* a stitched edge, drawn in CSS */
-  content: ""; position: absolute; inset: 7px; border-radius: 13px; pointer-events: none;
+  content: ""; position: absolute; inset: 6px; border-radius: 11px; pointer-events: none;
   border: 1.5px dashed color-mix(in srgb, var(--paper-ink, #23211d) 16%, transparent);
 }
-.paper-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; position: relative; z-index: 1; }
-.who { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; }
-.avatar { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700;
+.paper-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; position: relative; z-index: 1; }
+.who { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; min-width: 0; }
+.who > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sb-avatar { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 500;
   background: color-mix(in srgb, var(--paper-ink, #23211d) 12%, transparent); }
-.sky-toggle { width: 38px; height: 38px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--paper-ink, #23211d) 18%, transparent);
-  background: transparent; color: inherit; display: grid; place-items: center; cursor: pointer; }
-.sky-toggle:focus-visible, .paper button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.sky-toggle { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--paper-ink, #23211d) 18%, transparent);
+  background: transparent; color: inherit; display: grid; place-items: center; cursor: pointer; transition: background-color .15s, transform .15s; }
 .sky-toggle:hover { background: color-mix(in srgb, var(--paper-ink, #23211d) 7%, transparent); }
-.bed { position: relative; height: clamp(250px, 34vw, 340px); border-radius: 10px; overflow: hidden; cursor: crosshair; }
-.paper-copy h2 { font-family: var(--font-serif), Georgia, serif; font-weight: 500; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: -.02em; margin: 10px 0 6px; }
-.paper-copy p { margin: 0; max-width: 52ch; font-size: 15px; opacity: .86; }
-.hint { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); font-size: 12px; padding: 4px 10px; border-radius: 99px;
+.sky-toggle:active { transform: scale(.96); }
+.sky-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.bed { position: relative; height: clamp(240px, 32vw, 340px); border-radius: 10px; overflow: hidden; cursor: crosshair; touch-action: pan-y; }
+.hint { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); font-size: 13px; padding: 4px 12px; border-radius: 99px;
   background: color-mix(in srgb, var(--paper-ink, #23211d) 8%, transparent); pointer-events: none; transition: opacity .6s; white-space: nowrap; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px 6px 8px; border-radius: 99px; border: 1px solid var(--line);
-  background: var(--card); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer; }
+.chip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 14px 6px 8px; border-radius: 99px; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink); font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color .15s, background-color .15s; }
+.chip:hover { border-color: var(--line-2); }
 .chip[aria-pressed="true"] { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink) inset; }
-.swatch { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(0,0,0,.12); flex: none; }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.swatch { display: inline-flex; width: 24px; height: 24px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(0,0,0,.12); flex: none; }
 .swatch i { flex: 1; }
-@media (prefers-reduced-motion: reduce) { .paper, .hint, .btn { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .paper, .hint, .chip, .sky-toggle { transition: none; } }

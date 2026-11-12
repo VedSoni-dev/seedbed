@@ -1,0 +1,201 @@
+/* seedbed's landing page (/): the page's own CSS, loaded after the kit (system.css and the rest in public/assets).
+   The :root blocks are start.mjs brand's, run on seedbed's light and dark colours (the same tokens as the app).
+   The rest sits inside the page's visuals: the hero's garden window (sb-hw), the app-frame (sb-list, sb-open),
+   the feature fragments (sf) and the install window (sb-iw). */
+:root {
+  --p-bg: #f4f0e6; --p-surface: #ebe5d6; --p-ink: #1f1d1a; --p-muted: #57524a;
+  --p-accent: #2f5a2f; --p-accent-ink: #f4f0e6; --p-action: #2f5a2f; --p-action-ink: #f4f0e6;
+  --p-inv-bg: #1f1d1a; --p-inv-surface: #2b2926; --p-inv-ink: #f4f0e6; --p-inv-muted: #9b9891;
+  --p-inv-accent: #f4f0e6; --p-inv-accent-ink: #1f1d1a; --p-inv-action: #f4f0e6; --p-inv-action-ink: #1f1d1a;
+  --font-display: "Epilogue", system-ui, sans-serif;
+  --font-text: "Epilogue", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 400;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+  --ly-scale: 0.97;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --p-bg: #121410; --p-surface: #1b1e18; --p-ink: #eeeadf; --p-muted: #b3aea2;
+    --p-accent: #a9d18e; --p-accent-ink: #121410; --p-action: #a9d18e; --p-action-ink: #121410;
+    --p-inv-bg: #eeeadf; --p-inv-surface: #dcd9ce; --p-inv-ink: #121410; --p-inv-muted: #5c5c55;
+    --p-inv-accent: #121410; --p-inv-accent-ink: #eeeadf; --p-inv-action: #121410; --p-inv-action-ink: #eeeadf;
+    color-scheme: dark;
+  }
+}
+
+.lp-mark { display: inline-flex; color: var(--ink); }
+.lp-mark svg { width: 22px; height: 22px; }
+
+/* ---------------------------------------------------------------- hero: the garden window */
+.sb-hw { overflow: hidden; border-radius: var(--r-md, 14px); background: var(--bg); border: 1px solid var(--line);
+  box-shadow: 0 2px 4px rgb(0 0 0 / .08), 0 30px 60px -28px rgb(0 0 0 / .45); }
+.sb-hw__bar { display: flex; align-items: center; justify-content: center; height: 60px; padding: 0 8px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.sb-seg { display: inline-flex; gap: 2px; padding: 3px; border-radius: 12px; background: color-mix(in oklab, var(--ink) 6%, transparent); }
+.sb-seg button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px 0 10px; border: 0; border-radius: 9px; background: transparent;
+  color: var(--muted); font: 500 14px/1 var(--font-text); cursor: pointer; transition: background-color .15s, color .15s; }
+.sb-seg button:hover { color: var(--ink); }
+.sb-seg button[aria-pressed="true"] { background: var(--bg); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / .12); }
+.sb-seg .swatch { width: 18px; height: 18px; }
+.sb-hw__paper { border-radius: 0; box-shadow: none; padding: 10px 14px; }
+.sb-hw__paper::after { inset: 6px; }
+.sb-hw__bed { height: 340px; }
+@media (max-width: 639px) {
+  .sb-hw__bar { height: 56px; padding: 0 4px; }
+  .sb-seg { width: 100%; justify-content: space-between; }
+  .sb-seg button { flex: 1; justify-content: center; padding: 0; }
+  .sb-seg button span:last-child { display: none; }
+  .sb-seg .swatch { width: 22px; height: 22px; }
+  .sb-hw__bed { height: 300px; }
+}
+
+/* ---------------------------------------------------------------- #styles: the app-frame (sections-library) */
+.app.ui { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); margin-top: var(--s-7); background: var(--u-bg); border: 1px solid var(--u-border); border-radius: var(--u-r); box-shadow: var(--u-shadow); overflow: hidden; }
+.app > .app__pane { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+.app > .app__pane + .app__pane { border-left: 1px solid var(--u-line); }
+.app > .app__pane--list::after { content: ""; position: absolute; inset: auto 0 0 0; height: 48px; background: linear-gradient(transparent, var(--u-bg)); pointer-events: none; }
+.sb-app { --fx-bg: var(--bg); --fx-ink: var(--ink); --fx-muted: var(--muted); --fx-accent: var(--accent); --fx-accent-ink: var(--accent-ink); font: 14px/1.4 var(--font-text); color: var(--u-ink); }
+.sb-list__bar { display: flex; align-items: center; justify-content: space-between; height: 52px; padding: 0 20px; border-bottom: 1px solid var(--u-line); font-weight: 500; }
+.sb-list__bar em { font: normal 12px var(--font-mono); color: var(--u-muted); }
+.sb-list ul { list-style: none; margin: 0; padding: 6px; }
+.sb-list button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 8px 12px; border: 0; border-radius: 10px; background: transparent; color: inherit; text-align: left; cursor: pointer; }
+.sb-list button:hover { background: color-mix(in oklab, var(--u-ink) 5%, transparent); }
+.sb-list button[aria-pressed="true"] { background: color-mix(in oklab, var(--u-ink) 8%, transparent); }
+.sb-list .swatch { width: 26px; height: 26px; }
+.sb-list__txt { display: grid; min-width: 0; flex: 1; }
+.sb-list__txt b { font-weight: 500; }
+.sb-list__txt small { color: var(--u-muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sb-list__st { flex: none; font: 12px var(--font-mono); color: var(--u-muted); }
+.sb-list__st.is-grown { color: var(--accent); }
+.sb-open { display: flex; flex-direction: column; }
+.sb-open__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; height: 52px; padding: 16px 20px 0; border-bottom: 1px solid var(--u-line); }
+.sb-open__name { font-weight: 500; font-size: 16px; }
+.sb-open__meta { font: 12px var(--font-mono); color: var(--u-muted); }
+.sb-open__scene { margin: 16px 20px 0; padding: clamp(12px, 2vw, 24px); border-radius: 12px; }
+.sb-open__bed { height: 100%; min-height: 200px; }
+.sb-open__scene { flex: 1 1 auto; display: flex; min-height: 0; }
+.sb-open__scene > .paper { flex: 1; display: flex; }
+.sb-open__scene .bed { flex: 1; }
+.sb-sliders { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 16px 20px 20px; }
+.sb-slider { display: grid; gap: 4px; font-size: 13px; }
+.sb-slider > span { display: flex; justify-content: space-between; }
+.sb-slider output { font: 12px var(--font-mono); color: var(--u-muted); }
+.sb-slider input { width: 100%; min-height: 32px; accent-color: var(--accent); }
+@media (max-width: 1023px) {
+  .app.ui { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .app > .app__pane--list { max-height: 252px; }
+  .app > .app__pane--list::after { display: block; }
+  .app > .app__pane + .app__pane { border-left: 0; border-top: 1px solid var(--u-line); }
+}
+@media (max-width: 639px) {
+  .app.ui { grid-template-rows: auto minmax(0, 1fr); }
+  .app > .app__pane--list { max-height: 188px; }
+  .sb-list__txt small, .sb-list__st { display: none; }
+  .sb-open__head { padding: 14px 14px 0; height: 46px; }
+  .sb-open__meta { display: none; }
+  .sb-open__scene { margin: 12px 12px 0; }
+  .sb-sliders { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 10px 14px 14px; }
+  .sb-sliders .sb-slider:not(:first-child) { display: none; }
+}
+
+/* ---------------------------------------------------------------- #features: the card fragments */
+#features .panel { --p-h: 300px; }
+#features .panel > .stage { display: grid; place-items: center; padding: 24px; }
+.sf { --fx-bg: var(--bg); --fx-ink: var(--ink); --fx-muted: var(--muted); --fx-accent: var(--accent); --fx-accent-ink: var(--accent-ink);
+  width: min(100%, 400px); font: 14px/1.45 var(--font-text); color: var(--u-ink); }
+.sf--card { display: grid; gap: 12px; padding: 20px; border-radius: 14px; background: var(--u-bg); border: 1px solid var(--u-border); box-shadow: var(--u-shadow); }
+.sf--paper { padding: 18px 18px 12px; border-radius: 14px; background: #f7f1e3; color: #23211d; box-shadow: var(--u-shadow); }
+.sf__svg { display: block; width: 100%; height: auto; }
+.sf__labels { display: grid; grid-template-columns: repeat(5, 1fr); text-align: center; font: 12px var(--font-mono); color: #6a6357; }
+.sf--phone { width: 184px; align-self: end; color: var(--ink); margin-bottom: -24px; }
+.sf__h { display: flex; justify-content: space-between; align-items: baseline; }
+.sf__h b { font-weight: 500; }
+.sf__h small { color: var(--u-muted); font: 12px var(--font-mono); }
+.sf__field { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 6px 6px 12px; border: 1px solid var(--u-line-2, var(--u-line)); border-radius: 10px; }
+.sf__btn { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 14px; border-radius: 8px; background: var(--u-accent); color: var(--u-accent-ink, #fff); font-weight: 500; }
+.sf__btn--wide { justify-self: start; }
+.sf__out { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: color-mix(in oklab, var(--u-ink) 5%, transparent); }
+.sf__name { font-weight: 500; flex: 1; }
+.sf__colors { display: inline-flex; gap: 4px; }
+.sf__colors i { width: 16px; height: 16px; border-radius: 4px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .1); }
+.sf__tabs { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--u-line); border-radius: 10px; justify-self: start; font-size: 13px; }
+.sf__tabs span { padding: 5px 10px; border-radius: 7px; color: var(--u-muted); }
+.sf__tabs .is-on { background: var(--u-ink); color: var(--u-bg); }
+.sf__code { margin: 0; padding: 12px 14px; border-radius: 10px; background: color-mix(in oklab, var(--u-ink) 5%, transparent); font: 13px/1.6 var(--font-mono); white-space: pre; overflow: hidden; }
+@media (max-width: 639px) {
+  #features .panel { --p-h: 236px; }
+  #features .panel > .stage { padding: 16px; }
+  .sf--card { padding: 14px; gap: 10px; }
+  .sf__code { font-size: 12px; }
+  .sf--phone { width: 150px; }
+}
+/* the 2x2 fills its two screens from 1024 in two equal rows */
+#features .group > .grid { row-gap: var(--gutter); }
+#features .card--open > .panel { min-height: var(--p-h); }
+@media (min-width: 1024px) {
+  #features .wrap > .group { flex: 1 1 auto; }
+  #features .group > .grid { flex: 1 1 auto; min-height: 0; grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  #features .group > .grid > .card { display: flex; flex-direction: column; min-height: 0; }
+  #features .group > .grid > .card > .panel { flex: 1 1 auto; }
+}
+@media (max-width: 1023px) {
+  #features .wrap > .group { margin-block: auto; }
+  #features .card--open > .panel { flex: none; height: var(--p-h); }
+}
+
+/* ---------------------------------------------------------------- #install: the tag, running */
+#install .frame--split { position: relative; aspect-ratio: 15 / 16; }
+#install .frame--split > .sb-iw { position: absolute; inset: 32px; width: auto; height: auto; transform: none; display: flex; flex-direction: column; overflow: hidden; border-radius: 14px; background: var(--bg); border: 1px solid var(--line);
+  box-shadow: 0 2px 4px rgb(0 0 0 / .08), 0 24px 48px -24px rgb(0 0 0 / .4); }
+.sb-iw__bar { display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 14px; border-bottom: 1px solid var(--line); background: var(--surface); font: 13px var(--font-mono); color: var(--muted); }
+.sb-iw__dots { display: inline-flex; gap: 6px; }
+.sb-iw__dots i { width: 10px; height: 10px; border-radius: 50%; background: color-mix(in oklab, var(--ink) 18%, transparent); }
+.sb-iw__code { margin: 0; padding: 16px 18px; font: 13px/1.65 var(--font-mono); white-space: pre-wrap; word-break: break-word; border-bottom: 1px solid var(--line); }
+.sb-iw__code .t { color: var(--ink); }
+.sb-iw__code .a { color: var(--muted); }
+.sb-iw__code .s { color: var(--accent); }
+.sb-iw__live { position: relative; flex: 1 1 auto; min-height: 0; background: #f7f1e3; }
+@media (max-width: 639px) {
+  #install .frame--split { aspect-ratio: 4 / 5; }
+  #install .frame--split > .sb-iw { inset: 12px; }
+  .sb-iw__code { font-size: 12px; padding: 12px; }
+}
+
+/* ---------------------------------------------------------------- questions: the publik pitch and the film */
+.lp-pitch { font-size: var(--t-body); line-height: 1.6; color: var(--ink); }
+.lp-pitch p { margin: 0 0 var(--s-3); max-width: 46ch; }
+.lp-pitch a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: color-mix(in oklab, var(--ink) 35%, transparent); }
+.lp-pitch a:hover { text-decoration-color: currentColor; }
+.lp-pitch .pk-pitch-cta { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; }
+.lp-pending { margin: 0; max-width: 46ch; font-size: var(--t-small, 0.875rem); line-height: 1.5; color: var(--muted); }
+.frame.lp-film { aspect-ratio: 16 / 9; height: auto; min-height: 0; padding: 0; overflow: hidden; }
+.lp-film video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------------------------------------------------------------- gate round 1 */
+/* the install window and the fragments keep the paper's light colours in both modes: they sit on the lit ground */
+#install .frame--split > .sb-iw, .sf { --bg: #fbf8f1; --surface: #ebe5d6; --ink: #1f1d1a; --muted: #57524a; --line: #dcd5c5; --accent: #2f5a2f; --accent-ink: #f4f0e6; color: #1f1d1a; }
+.lp-film--still { display: grid; place-items: center; padding: 32px; aspect-ratio: 16 / 10; }
+.lp-film--still .sf { width: min(100%, 420px); }
+.hint { background: color-mix(in srgb, var(--paper-ink, #23211d) 14%, var(--paper, #f7f1e3)); color: var(--paper-ink, #23211d); }
+.sb-slider label { font-weight: 400; }
+.sb-slider input { min-height: 44px; }
+/* phone: the open garden alone, as the app-frame recipe has it */
+@media (max-width: 639px) {
+  .app.ui { grid-template-rows: minmax(0, 1fr); }
+  .app > .app__pane--list { display: none; }
+  .app > .app__pane + .app__pane { border-top: 0; }
+  .sb-open__scene { min-height: 240px; }
+}
+/* 320: the logo and the menu button; the hero carries the main button */
+@media (max-width: 379px) { header.nav .nav__bar > .nav__actions { display: none; } }
+/* the effect's pause disc sits above the hero frame's fade, where its focus ring shows */
+.hero--centred .hero__window > button.ui-pause { top: 12px; right: 12px; bottom: auto; }
+.sf--meadow { width: 100%; max-width: 460px; }
+/* gate round 1, layout: tablet panels larger so the 2x2 fills its two screens; phone panels lower so it fits two;
+   on a phone the questions grow with what they hold (1.55 screens) */
+@media (min-width: 640px) and (max-width: 1023px) { #features .panel { --p-h: 400px; } }
+@media (max-width: 639px) { #features .panel { --p-h: 196px; } }
+/* gate round 2: on a phone the questions take two screens as two groups (.g2m): the pitch and the meadow, then the answers */
+@media (max-width: 639px) { #questions > .wrap > .grid { display: contents; } }

@@ -1,0 +1,16 @@
+{
+ "palettes": [],
+ "types": [],
+ "dealt": [
+  "epilogue",
+  "gabarito",
+  "geist"
+ ],
+ "moments": [
+  {
+   "id": "letters-assemble",
+   "at": "2026-11-12T22:41:20.275Z",
+   "seed": "a72b4191"
+  }
+ ]
+}

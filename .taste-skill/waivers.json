@@ -1,0 +1,27 @@
+[
+ {
+  "check": "empty-visual",
+  "target": "div.paper > div.bed.sb-open__bed > div > canvas",
+  "reason": "the live seedbed garden at rest is the product's quiet dot grid on its cream paper card (the design's own look: the dots are the picture); flowers grow under the pointer and in one sweep when it first comes into view, so a still capture after the sweep shows the dots only"
+ },
+ {
+  "check": "empty-visual",
+  "target": "div.ui.sb-iw > div.sb-iw__live > seedbed-garden > canvas",
+  "reason": "the running <seedbed-garden> tag at rest is the product's dot grid on its paper colour; it blooms under the pointer and in one sweep when it first scrolls into view"
+ },
+ {
+  "check": "gl-fallback",
+  "target": "div.scene.sb-open__scene > div.paper > div.bed.sb-open__bed > div",
+  "reason": "a 2D canvas, not WebGL; without canvas 2D the engine already paints its still fallback, a CSS dot grid on the card colour (lib/seedbed.js fallback()), which is the same picture as its rest state"
+ },
+ {
+  "check": "gl-fallback",
+  "target": "div.frame.frame--split > div.ui.sb-iw > div.sb-iw__live > seedbed-garden",
+  "reason": "a 2D canvas, not WebGL; the element's fallback is the CSS dot grid on the card colour, the same picture as its rest state"
+ },
+ {
+  "check": "sparse",
+  "target": "#statement section.section.mo-la",
+  "reason": "the dealt letters-assemble statement section is type by design (moments.md): one short statement and its line, set at the kit's own moment.css sizes, with no picture"
+ }
+]

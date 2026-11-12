@@ -1,0 +1,11 @@
+{
+ "page": null,
+ "url": "http://localhost:3131/",
+ "root": null,
+ "kind": "software",
+ "category": "hover garden component for websites",
+ "primary": "Start a garden",
+ "rounds": 3,
+ "start": "2026-11-12T22:40:57.373Z",
+ "by": "gate.mjs --start"
+}

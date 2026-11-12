@@ -1,0 +1,25 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<!-- <html lang="en" data-radius="soft">; keep this <style> after the links: layout.css resets --ly-scale -->
+<style>
+:root {
+  --p-bg: #f4f0e6; --p-surface: #ebe5d6; --p-ink: #1f1d1a; --p-muted: #57524a;
+  --p-accent: #2f5a2f; --p-accent-ink: #f4f0e6; --p-action: #2f5a2f; --p-action-ink: #f4f0e6;
+  --p-inv-bg: #1f1d1a; --p-inv-surface: #2b2926; --p-inv-ink: #f4f0e6; --p-inv-muted: #9b9891;
+  --p-inv-accent: #f4f0e6; --p-inv-accent-ink: #1f1d1a; --p-inv-action: #f4f0e6; --p-inv-action-ink: #1f1d1a;
+  --font-display: "Epilogue", system-ui, sans-serif;
+  --font-text: "Epilogue", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 400;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+  --ly-scale: 0.97;
+}
+</style>
