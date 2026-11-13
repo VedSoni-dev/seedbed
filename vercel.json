@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/seedbed.js",
+      "destination": "https://frontend.vedantsoni.com/flowers/seedbed.js",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://frontend.vedantsoni.com/flowers",
+      "permanent": true
+    }
+  ]
+}

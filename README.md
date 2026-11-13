@@ -1,5 +1,7 @@
 # seedbed
 
+> **Live at [frontend.vedantsoni.com/flowers](https://frontend.vedantsoni.com/flowers)**, one piece of [fork this frontend](https://github.com/VedSoni-dev/frontend): every fork this front-end build on one site, free with a publik account. This repo keeps the original standalone version.
+
 ![seedbed: move over the dots and flowers grow, on any website](docs/media/cover.png)
 
 A hover garden for any website: a quiet dot grid where flowers grow up out of the dots under your cursor (or finger), then wilt back into dots. One dependency-free file, five styles, live controls. A free, open-source rebuild of a design experiment by Mohamed Siddique ([his post](https://x.com/msiddique26/status/2120936635856752710)), which was only shown as a video.
@@ -15,7 +17,7 @@ A hover garden for any website: a quiet dot grid where flowers grow up out of th
 
 These are the real app at `/app`, with a sample garden ("Hazel Pottery" is a made-up site).
 
-**Live:** https://seedbed-gray.vercel.app · **App:** https://seedbed-gray.vercel.app/app · **The file:** https://seedbed-gray.vercel.app/seedbed.js · publik listing coming soon (publik caps new listings each week; until then `/app` opens with no sign-in)
+**Live:** https://frontend.vedantsoni.com/flowers · **App:** https://frontend.vedantsoni.com/flowers · **The file:** https://frontend.vedantsoni.com/flowers/seedbed.js · publik listing coming soon (publik caps new listings each week; until then `/app` opens with no sign-in)
 
 ## Drop it into your site
 
