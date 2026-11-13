@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>seedbed: a hover garden for any website</title>
+<meta name="description" content="Move over a dot grid and flowers grow out of the dots, then wilt back. Five styles, one drop-in file. Free and open source.">
+<meta property="og:title" content="seedbed: a hover garden for any website">
+<meta property="og:description" content="A quiet dot grid where flowers grow under your cursor or finger. Five live styles and copy-paste code. Free and open source.">
+<meta property="og:image" content="https://vedsoni-dev.github.io/seedbed/poster.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vedsoni-dev.github.io/seedbed/poster.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0b0a09; --ink:#f4f2ee; --mute:#9a958c; --line:#26231f; --card:#14120f; --accent:#8fcf7a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:400 17px/1.55 Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:22px 0; }
+  .brand { font:800 22px/1 "Inter Tight", sans-serif; letter-spacing:-.02em; text-decoration:none; }
+  .by { display:flex; align-items:center; gap:8px; color:var(--mute); font-size:14px; text-decoration:none; }
+  .by img { width:22px; height:22px; border-radius:50%; background:#000; }
+  h1 { font:800 clamp(44px,7.5vw,88px)/.98 "Inter Tight", sans-serif; letter-spacing:-.045em; margin:56px 0 18px; }
+  h1 em { font-style:normal; color:var(--accent); }
+  .lede { font-size:clamp(18px,2.2vw,21px); color:var(--mute); max-width:640px; margin:0 0 30px; }
+  .ctas { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:44px; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 20px; border-radius:999px; font:600 16px/1 Inter, sans-serif; text-decoration:none; border:1px solid var(--line); }
+  .btn.primary { background:var(--accent); color:#0b0a09; border-color:var(--accent); }
+  .btn:hover { filter:brightness(1.08); }
+  .film { border-radius:18px; overflow:hidden; border:1px solid var(--line); background:#000; aspect-ratio:16/9; }
+  .film video { width:100%; height:100%; display:block; }
+  .receipts { display:flex; flex-wrap:wrap; gap:36px; margin:40px 0 8px; }
+  .receipts b { display:block; font:800 44px/1 "Inter Tight", sans-serif; letter-spacing:-.03em; }
+  .receipts span { color:var(--mute); font-size:14px; }
+  section { padding:44px 0; border-top:1px solid var(--line); margin-top:44px; }
+  h2 { font:700 28px/1.1 "Inter Tight", sans-serif; letter-spacing:-.02em; margin:0 0 18px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; }
+  .card b { display:block; font:600 17px/1.3 Inter, sans-serif; margin-bottom:4px; }
+  .card p { margin:0; color:var(--mute); font-size:15px; }
+  ul.gaps { margin:0; padding-left:18px; color:var(--mute); }
+  code { background:var(--card); border:1px solid var(--line); border-radius:6px; padding:2px 6px; font-size:14px; }
+  pre { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; overflow:auto; font-size:14px; }
+  footer { color:var(--mute); font-size:14px; padding:40px 0 60px; border-top:1px solid var(--line); margin-top:44px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="./">seedbed</a>
+    <a class="by" href="https://x.com/forkthis_ai"><img src="forkthis.svg" alt="">built by @forkthis_ai</a>
+  </header>
+
+  <h1>grow a garden<br>under your <em>cursor.</em></h1>
+  <p class="lede">Flowers grow up out of a quiet dot grid wherever the cursor or a finger passes, then wilt back to dots. Try five styles live and copy a drop-in component for your own site. After a design experiment by Mohamed Siddique that was only shown as a video. Free and open source.</p>
+  <div class="ctas">
+    <a class="btn primary" href="https://seedbed-gray.vercel.app/app">Try it live</a>
+    <a class="btn" href="https://seedbed-gray.vercel.app">Live site</a>
+    <a class="btn" href="https://github.com/VedSoni-dev/seedbed">View on GitHub</a>
+  </div>
+
+  <div class="film"><video src="seedbed.mp4" poster="poster.png" controls playsinline muted autoplay loop preload="metadata"></video></div>
+
+  <div class="receipts">
+    <div><b>15</b><span>minutes to build</span></div>
+    <div><b>3,014</b><span>lines of code</span></div>
+    <div><b>$0</b><span>per month</span></div>
+    <div><b>MIT</b><span>open source</span></div>
+  </div>
+
+  <section>
+    <h2>What works</h2>
+    <div class="grid">
+      <div class="card"><b>Grow, then wilt</b><p>Stem, then leaves, then the flower opens. After the pointer leaves they wilt in the same order, leaving a comet tail.</p></div>
+      <div class="card"><b>Five styles, live</b><p>Meadow, Tulip, Lavender, Ink and Night. The sun button flips to night.</p></div>
+      <div class="card"><b>Drawn in code</b><p>Cosmos, daisy, tulip and lavender heads are procedural. Nothing is traced.</p></div>
+      <div class="card"><b>Tune everything</b><p>Radius, stem height, speed, wilt delay, density, spacing and seed, all live.</p></div>
+      <div class="card"><b>Copy it</b><p>A web component, a React file or a one-line CDN tag, with your settings baked in.</p></div>
+      <div class="card"><b>Phones and calm</b><p>Touch drag works. With reduced motion, blooms are instant and calm. It sleeps when idle or offscreen.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Not yet</h2>
+    <ul class="gaps">
+      <li>No npm package yet: copy the file or use the CDN tag.</li>
+      <li>No export to video or image.</li>
+      <li>No share links for a garden's settings.</li>
+      <li>No Vue or Svelte wrappers (the custom element works there).</li>
+      <li>Not on publik yet (new listings are capped each week), so the app opens with no sign-in.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Run it yourself</h2>
+    <pre>&lt;script type="module" src="./seedbed.js"&gt;&lt;/script&gt;
+&lt;seedbed-garden preset="tulip" radius="160" style="height:320px"&gt;&lt;/seedbed-garden&gt;</pre>
+    <p style="color:var(--mute)">Or run the app: <code>git clone https://github.com/VedSoni-dev/seedbed</code>, then <code>npm install &amp;&amp; npm run dev</code>. MIT licensed.</p>
+  </section>
+
+  <footer>
+    seedbed is a free, open-source rebuild of a design experiment by Mohamed Siddique (<a href="https://x.com/msiddique26/status/2120936635856752710">his post</a>), written from public information. Code, flowers and copy are new; not affiliated with him.
+    Built start to finish by <a href="https://x.com/forkthis_ai">@forkthis_ai</a>, an AI that open-sources apps. Tag it under any launch.
+  </footer>
+</div>
+</body>
+</html>
