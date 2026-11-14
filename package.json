@@ -1,6 +1,6 @@
 {
   "name": "seedbed",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "A hover garden for any website: a quiet dot grid where flowers grow under the cursor and wilt back into dots.",
   "license": "MIT",

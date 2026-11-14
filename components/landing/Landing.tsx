@@ -25,17 +25,6 @@ const ARROW = (
   <svg className="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path className="m-arrow__stem" d="M1 6h8" /><path className="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5" /></svg>
 );
 
-// While the publik listing is pending, one line under the pitch says so; it keeps its own state so Landing
-// never re-renders, and it disappears once the listing and app token exist.
-function PublikPending() {
-  const [pending, setPending] = useState(false);
-  useEffect(() => {
-    fetch("/api/publik/status", { cache: "no-store" }).then((r) => r.json()).then((j) => setPending(j?.state === "pending")).catch(() => {});
-  }, []);
-  if (!pending) return null;
-  return <p className="lp-pending">seedbed is coming to publik (publik caps new listings each week). Until its listing is up, the app is open to everyone with no sign-in.</p>;
-}
-
 // The launch film, once the film stage has put it at public/seedbed.mp4. Until then a still meadow on the paper card.
 function Film() {
   const [has, setHas] = useState(false);
@@ -198,7 +187,6 @@ export function Landing() {
               <div className="span-5 stack-5">
                 <h2 id="questions-h">Questions</h2>
                 <PublikPitch appName="seedbed" className="lp-pitch" />
-                <PublikPending />
                 <Film />
               </div>
               <div className="faq span-6 start-7">

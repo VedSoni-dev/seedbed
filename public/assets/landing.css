@@ -169,7 +169,6 @@
 .lp-pitch a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: color-mix(in oklab, var(--ink) 35%, transparent); }
 .lp-pitch a:hover { text-decoration-color: currentColor; }
 .lp-pitch .pk-pitch-cta { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; }
-.lp-pending { margin: 0; max-width: 46ch; font-size: var(--t-small, 0.875rem); line-height: 1.5; color: var(--muted); }
 .frame.lp-film { aspect-ratio: 16 / 9; height: auto; min-height: 0; padding: 0; overflow: hidden; }
 .lp-film video { display: block; width: 100%; height: 100%; object-fit: cover; }
 

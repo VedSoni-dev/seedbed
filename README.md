@@ -15,9 +15,9 @@ A hover garden for any website: a quiet dot grid where flowers grow up out of th
 | ![Start your garden: name the site and pick a style](docs/media/1-start.png) | ![A Meadow garden in bloom under the cursor](docs/media/2-it-blooms.png) |
 | ![The same garden switched to Night](docs/media/3-night.png) | ![Copy it into your site: the tag with your settings baked in](docs/media/4-copy-it.png) |
 
-These are the real app at `/app`, with a sample garden ("Hazel Pottery" is a made-up site).
+These are the real app at `/app` after Sign in with publik, with a sample garden ("Hazel Pottery" is a made-up site).
 
-**Live:** https://frontend.vedantsoni.com/flowers · **App:** https://frontend.vedantsoni.com/flowers · **The file:** https://frontend.vedantsoni.com/flowers/seedbed.js · publik listing coming soon (publik caps new listings each week; until then `/app` opens with no sign-in)
+**Live:** https://frontend.vedantsoni.com/flowers · **App:** https://frontend.vedantsoni.com/flowers · **The file:** https://frontend.vedantsoni.com/flowers/seedbed.js · Sign in with a free publik account to open it
 
 ## Drop it into your site
 
@@ -64,7 +64,7 @@ npm run dev
 open http://localhost:3000
 ```
 
-Deploy: `npx vercel --prod`. The landing page at `/` is public; `/app` uses Sign in with publik once its listing is up (see AGENTS.md).
+Deploy: `npx vercel --prod`. The landing page at `/` is public; `/app` uses Sign in with publik through the fork this builds listing (see AGENTS.md).
 
 ## Licence
 MIT. See [LICENSE](LICENSE). The engine and the app are written from scratch. The landing page's layout and motion kit in `public/assets` (system.css, the layout, motion, moment and effect scripts) comes from tasteskill, the design skill the page was built with; `public/assets/landing.css` is the page's own.
